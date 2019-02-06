@@ -1,0 +1,717 @@
+%%%%%%%%%%%%%%
+%% Run LaTeX on this file several times to get Table of Contents,
+%% cross-references, and citations.
+%% w-bktmpl.tex. Current Version: Feb 16, 2012
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Template file for
+%  Wiley Book Style, Design No.: SD 001B, 7x10
+%  Wiley Book Style, Design No.: SD 004B, 6x9
+%
+%  Prepared by Amy Hendrickson, TeXnology Inc.
+%  http://www.texnology.com
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Class File
+%% For default 7 x 10 trim size:
+\documentclass{WileySev}
+%% Or, for 6 x 9 trim size
+%\documentclass{WileySix}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Post Script Font File
+% For PostScript text
+% If you have font problems, you may edit the w-bookps.sty file
+% to customize the font names to match those on your system.
+\usepackage{w-bookps}
+%% Adding hyperlink content to the table of contents
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+}
+%% Adding MATLAB code, figures and other useful packages 
+\usepackage{listings}
+\usepackage{mcode}
+\usepackage{subcaption}
+
+%%%%%%%
+%% For times math: However, this package disables bold math (!)
+%% \mathbf{x} will still work, but you will not have bold math
+%% in section heads or chapter titles. If you don't use math
+%% in those environments, mathptmx might be a good choice.
+
+% \usepackage{mathptmx}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Graphicx.sty for Including PostScript .eps files
+\usepackage{graphicx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Other packages you might want to use:
+
+% for chapter bibliography made with BibTeX
+\usepackage{chapterbib}
+\usepackage{natbib}
+
+% for multiple indices
+% \usepackage{multind}
+
+% for answers to problems
+% \usepackage{answers}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Change options here if you want:
+%%
+%% How many levels of section head would you like numbered?
+%% 0= no section numbers, 1= section, 2= subsection, 3= subsubsection
+%%==>>
+\setcounter{secnumdepth}{3}
+
+%% How many levels of section head would you like to appear in the
+%% Table of Contents?
+%% 0= chapter titles, 1= section titles, 2= subsection titles, 
+%% 3= subsubsection titles.
+%%==>>
+\setcounter{tocdepth}{2}
+
+%% Cropmarks? good for final page makeup
+%% \docropmarks %% turn cropmarks on
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DRAFT
+%
+% Uncomment to get double spacing between lines, current date and time
+% printed at bottom of page.
+% \draft
+% (If you want to keep tables from becoming double spaced also uncomment
+% this):
+% \renewcommand{\arraystretch}{0.6}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%{}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Title Pages
+%%
+%% Wiley will provide title and copyright page, but you can make
+%% your own titlepages if you'd like anyway
+
+%% Setting up title pages, type in the appropriate names here:
+\booktitle{Neural Networks and Machine Learning}
+\subtitle{}
+
+\author{William Cruz} \affil{National Cheng Kung University}
+%or
+\authors{}
+%% \\ will start a new line.
+%% You may add \affil{} for affiliation, ie,
+%\authors{Robert M. Groves\\
+%\affil{Universitat de les Illes Balears}
+%Floyd J. Fowler, Jr.\\
+%\affil{University of New Mexico}
+%}
+%% Print Half Title and Title Page:
+\halftitlepage
+\titlepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Off Print Info
+%% Add your info here:
+\offprintinfo{Neural Networks and Machine Learning, \\ First Edition}{William Cruz}
+%% Can use \\ if title, and edition are too wide, ie,
+%% \offprintinfo{Survey Methodology,\\ Second Edition}{Robert M. Groves}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Copyright Page
+\begin{copyrightpage}{2019}
+Neural Networks and Machine Learning
+\end{copyrightpage}
+% Note, you must use \ to start indented lines, ie,
+% 
+% \begin{copyrightpage}{2004}
+% Survey Methodology / Robert M. Groves . . . [et al.].
+% \       p. cm.---(Wiley series in survey methodology)
+% \    ``Wiley-Interscience."
+% \    Includes bibliographical references and index.
+% \    ISBN 0-471-48348-6 (pbk.)
+% \    1. Surveys---Methodology.  2. Social 
+% \  sciences---Research---Statistical methods.  I. Groves, Robert M.  II. %
+% Series.\\
+
+% HA31.2.S873 2004
+% 001.4'33---dc22                                             2004044064
+% \end{copyrightpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Frontmatter >>>>>>>>>>>>>>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Only Dedication (optional) 
+%% or Contributor Page for edited books
+%% before \tableofcontents
+\dedication{To my family}
+% ie,
+%\dedication{To my parents}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Contributors Page for Edited Book
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% If your book has chapters written by different authors,
+% you'll need a Contributors page.
+
+% Use \begin{contributors}...\end{contributors} and
+% then enter each author with the \name{} command, followed
+% by the affiliation information.
+
+% \begin{contributors}
+% \name{Masayki Abe,} Fujitsu Laboratories Ltd., Fujitsu Limited, Atsugi,
+% Japan
+
+% \name{L. A. Akers,} Center for Solid State Electronics Research, Arizona
+% State University, Tempe, Arizona
+
+% \name{G. H. Bernstein,} Department of Electrical and
+% Computer Engineering, University of Notre Dame, Notre Dame, South Bend, 
+% Indiana; formerly of
+% Center for Solid State Electronics Research, Arizona
+% State University, Tempe, Arizona 
+% \end{contributors}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\contentsinbrief %optional
+\tableofcontents
+\listoffigures %optional
+\listoftables  %optional
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Optional Foreword:
+
+%\begin{foreword}
+%text
+%\end{foreword}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Optional Preface:
+
+%\begin{preface}
+% text
+%\prefaceauthor{}
+%\where{place\\
+% date}
+%\end{preface}
+
+% ie,
+% \begin{preface}
+% This is an example preface.
+% \prefaceauthor{R. K. Watts}
+% \where{Durham, North Carolina\\
+% September, 2004}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Optional Acknowledgments:
+
+% \acknowledgments
+% acknowledgment text
+% \authorinitials{} % ie, I. R. S.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Glossary Type of Environment:
+
+% \begin{glossary}
+% \term{<term>}{<description>}
+% \end{glossary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{acronyms} 
+\acro{ANN}{Artificial Neural Network}
+\end{acronyms}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% In symbols environment <term> is expected to be in math mode; 
+%% if not in math mode, use \term{\hbox{<term>}}
+% \begin{symbols}
+% \term{<math term>}{<description>}
+% \term{\hbox{<non math term>}}Box used when not using a math symbol.
+% \end{symbols}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{glossary}
+\term{Node}Artificial Neurons with inner parameters; each node can receive and process incoming information from other nodes and transmit the processed signal towards other nodes in the network.
+
+\term{Artificial Neural Network} computer simulation of how populations of neurons perform a given task.
+
+\term{Distributed Representation} Inherent representations to the ANNs as patterns of activation among many network's elements.
+
+\term{Local Representation} Inherent representation of a node within an ANNs as patterns of activation in a single network's element.
+
+\term{Loss function} The change in the error signal over the set of learning trials.
+
+\term{link} Is the connection between two nodes between a network and have a weight value.
+
+\term{weight} The multiplication coefficient applied to the activation value of the link between two nodes of the network.
+
+\end{glossary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{introduction}
+%\introauthor{<name>}{<affil>}
+% Introduction text...
+The application fields of artificial neural networks is undergoing an exponential growth during this  decade and the possible applications in areas such as psychology and cognitive psychology are countless. By the time I got interested in these topics I did not have a strong background in computer science but I could see the potential of these techniques for solving the kind of problems that psychologist and social scientist in general deal with, mainly diagnosis, classification and prediction. Therefore, during my PhD studies at NCKU\footnote{National Cheng Kung University} I decided to approach this topic and write a guide that helped to understand better not only the theory but also its implementation for different kind of problems. 
+
+This book introduces the fundamentals to implement these techniques using MATLAB, a computing environment published by MathWorks which can run on many platforms such as Windows and Macintosh. MATLAB is able to perform or use the following
+
+\begin{itemize}
+  \item Matrix Arithmetic - add, divide, inverse, transpose, etc.
+  \item Relational Operators - less than, not equal, etc.
+  \item Logical Operators - AND, OR, NOT, XOR
+  \item Data Analysis - minimum, mean, covariance, etc.
+  \item Elementary functions - sin, cos, log, etc.
+  \item Numerical Linear Algebra - LU decomposition, etc.
+  \item Polynomials - roots, fit polynomial, divide, etc.
+  \item Non-linear Numerical Methods - solve DE, minimize functions, etc.
+\end{itemize}
+
+More on MATLAB goes in this section...
+
+\end{introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional Part :
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\part[1 Theory and Fundamentals of Neural Networks]
+{Basics of Neural Networks}
+
+\chapter[Basics of Neural Networks]
+{Basics of Neural Networks}
+
+\section{Early conceptions of Neural Networks} \label{sec:historic}
+
+One of the earliest conceptions about Neural Networks was proposed by Warren McCulloch and Walter Pitts in 1943, who provided an explanation on the functioning of biological networks and also made simple assumptions about how neurons might operate. From their perspective a neuron had a binary output determined by a threshold value, that is, it could either send out a signal (i.e. being \textit{on}) or not send a signal (i.e. being \textit{off}). Additionally, they assumed the weights of the connections between neurons to be at a fixed value. Under these settings, networks are capable of computing simple logical operations (e.g. AND, OR, and NOT) \cite[chap. 7]{friedenberg2011cognitive}.
+
+Donald O. Hebb (1949) was the first to propose how changes among neurons might explain learning. Hebb's rule states that when on cell repeatedly activates another, the strength of the connection between the two cells is increased; in this way, circuits among neurons are formed which are considered to be the neural foundation of learning and memory. Hebb defined two types of cell groupings; a \textbf{cell assembly} is a relatively small group of neurons that stimulate each other repeatedly, while a \textbf{phase sequence} is a group of connected cell assemblies that fire synchronously, as represented in Figure~\ref{fig:phase sequence}. A cell assembly can code a simple perceptual quality, such as \textit{yellow} or \textit{round}, and these qualities could become linked so as to form a phase sequence during learning and code for a higher order concept such as \textit{sun}. 
+
+\begin{figure}
+ \includegraphics[width=0.7\linewidth]{fig_phase_sequence.png}
+  \centering
+  \caption{A phase sequence consisting of cell assemblies, \cite{friedenberg2011cognitive}}
+  \label{fig:phase sequence}
+\end{figure} 
+
+In the 1950's the research on neural networks focused on mimicking the functioning of real biological networks, time when was introduced an artificial nervous system called the \textbf{perceptron}. A perceptron is a neural net designed to detect and recognize patterned information about the world, and its is able to store and use this information (i.e. learn from experience). The learning occurs because the network can modify their connection strengths by comparing their actual output to a desired output. The earliest perceptron was an artificial retina called \textit{Mark I} (Rosenblantt, 1958) which contained a single layer of input units as well as an output layer as the one depicted in Figure~\ref{fig:perceptron}; this network is able to recognize simple visual patterns such as vertical and horizontal lines, but is unable to distinguish more complex patterns due to its relatively weak computing power.
+
+\begin{figure}
+ \includegraphics[width=0.5\linewidth]{fig_perceptron.png}
+  \centering
+  \caption{Early perceptron with two layers in which each input unit maps onto every output unit, \cite{friedenberg2011cognitive}}
+  \label{fig:perceptron}
+\end{figure} 
+
+\section{Mathematical Foundations of Neural Networks} \label{sec:math_foundations}
+
+Artificial Neural Networks (ANN) are computational frameworks created to mimic the functioning and operations of biological neuronal networks, these can be thought of as computational simulations of how the actual neurons might perform during a given task, such as pattern recognition or classification, the resemblance with their biological counterparts is termed \textit{biological plausibility}\footnote{This plausibility is demonstrated with the following three criteria,\textbf{1} ANNs share general structural and functional correlates with biological networks, \textbf{2} are capable of learning and \textbf{3} react to damage as biological networks do.}. In an ANN, information is conceived as a pattern of activation within the network, these activation patterns can occur sequentially or simultaneously across different network's \textbf{nodes}. \textbf{Parallel distributed processing} refers to an architecture in which one computing unit is not required to wait for another to finish its computation before it can begin its work, the units can operate in parallel and are not limited to receive input and process outputs from and towards only a single unit, the previous being some of the ANNs' distinctive features \cite[chap. 7]{friedenberg2011cognitive}. Nodes can be thought of as artificial neurons with inner parameters, thus each node can receive and process incoming information in the same way neurons do, have connections with other nodes and transmit the processed signals towards other nodes in the network.
+
+Researchers that use ANNs are mainly concerned about the overall behavior of the network without paying much attention to symbolic representations or rules; from this approach, the representations are rather inherent to the ANNs as patterns of activation and do not exist in the form of symbols (i.e. \textit{Distributed representation}). This problem solving strategy is referred as to \textbf{behavior-based approach}, and leaves the computational details up to the network itself. Additionally the networks are capable of undergoing a learning-like process, the nodes can adaptively change their threshold responses over time by modifying the weights of the links after receiving new information, usually the feedback that results from the validation of the output and the target. For example, within the problems that ANNs can cope with are the classification problems, these involve assigning a categorical label to a new stimulus after a concept formation has been established by the network through a training phase after a series of $n$ trials in which some feedback about the network's performance is used to adjust the overall performance of the network.
+
+The basic computational unit in a neural network is represented as a \textbf{node}, after following the inherent mechanisms that characterize it (v.g. set of internal rules), the node sends a signal towards other nodes via their links if, for example, the activation value or threshold for that node is surpassed. A \textbf{link} is the connection between two nodes within a network and have a \textbf{weight} value which can be understood as the strength of the signal; this weight usually takes values between -1 and 1 and thus the net output of a node is its value times the weight of the link, which can either \textit{inhibit} or \textit{facilitate} the activation of the next node downstream. For example, if the a unit with activation value equal to $1$ pass along a link that has a weight of $0.5$, it will stimulate the nodes to which it is connected by a factor of $0.5$; on the contrary, if the link has a weight of $-0.5$ is likely to negatively stimulate the nodes to which it is connected. The greater the value of a node's net output, the more likely is that the nodes it is connected to will fire and similarly negative outputs serves the function of shutting down the activation from other nodes \cite[chap. 7]{friedenberg2011cognitive}. The total amount of stimulation that a given node receives can be calculated as the summation of the inputs received by that node specified by a \textbf{basis function}, which can be described as the Equation \ref{eq:1}
+
+\begin{equation}
+y_{j}=f\Big(\sum_{i=1}^n a_i w_{ij} \Big) \label{eq:1} % Basis equation
+\end{equation}
+
+where $a_i$ is the value of the $i^{th}$ input signal, and $w_{ij}$ is the weight associated with the connections between the $i^{th}$ and $j^{th}$ node, thus $y_j$ is the summed stimulation over the $n$ inputs towards the $j^{th}$ node within the network \cite[chap. 7]{friedenberg2011cognitive}. Figure~\ref{fig:neural network} graphically presents the computations involved within a simple neural network; the activation values are displayed inside each node and the weights are indicated along the links, the output value is indicated at the endpoint of each link. Other authors \cite{jiang2010medical,tsoukalas1996fuzzy} have added to this equation the parameter $b_i$, defined as the bias associated with the $i^{th}$ node, which can be described as the Equation \ref{eq:basis_equation2}
+
+\begin{equation}
+y_j=f\Big( \sum_{i=1}^n a_i w_{ij} +b_i\Big) \label{eq:basis_equation2} % Basis equation with error term
+\end{equation}
+
+\begin{figure}
+  \includegraphics[width=0.5\linewidth]{simple_neural_network.png}
+  \centering
+  \caption{A simple neural network, \cite{friedenberg2011cognitive}}
+  \label{fig:neural network}
+\end{figure}
+
+Afterwards, the \textit{basis function} sends its signal to an \textbf{activation function\footnote{also labeled as \textit{transfer function}}}, which maps the strength of the inputs a node receives onto the node's output and can assume its distinctive shape from different mathematical expressions. For example, a linear activation function's outputs is equal to its input, as shown in Equation \ref{eq:linear}. The MATLAB code of such function taking a range between $-5$ and $5$ is like follows; additionally, as to evidence the function's shape it is possible to generate a graphical description, as shown in Figure~\ref{fig:linear}.
+
+\begin{equation}
+f(x)=x \label{eq:linear}
+\end{equation}
+
+\begin{lstlisting}
+x=[-5:0.1:5];
+y=[0:1:length(x)-1];
+plot(y,x);xlabel('x','FontSize',16) ; ylabel('Linear (x)','FontSize',16);
+\end{lstlisting}
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{linear.eps}
+    \caption{Linear Function.}
+    \label{fig:linear}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\linewidth}
+    \includegraphics[width=\linewidth]{log_fun.eps}
+    \caption{Logistic Function.}
+    \label{fig:logistic}
+  \end{subfigure}
+  \caption{Activation Functions.}
+  \label{fig:functions}
+\end{figure}
+
+There are also several types of non-linear activation functions; for example, differentiable, non-linear activation functions as the logistic function and the hyperbolic tangent function are commonly used in networks which use back-propagation training. The logistic function is described by Equation \ref{eq:logistic}
+
+\begin{equation}
+f(x)=\frac{1}{1+e^{-x}} \label{eq:logistic}
+\end{equation}
+
+Where $x$ is the input value and $e$ is the base of the natural logarithm\footnote{The number whose natural logarithm is equal to one, approximately 2.71828}. As can be seen in Figure~\ref{fig:logistic}, the output range of this function is between 0 and 1. Below is the MATLAB code used to generate the graph for the logistic function.
+
+\begin{lstlisting}
+x=[-5:0.1:5];
+y=zeros(1,length(x));
+for n = 1:length(y)
+    y(n)=1/(1+exp(1)^(-(x(n))));
+end
+plot(x,y);xlabel('x','FontSize',16) ; ylabel('Logistic (x)','FontSize',16);
+\end{lstlisting}
+
+Besides the logistic function described above, the activation function can also set to be either an \textit{a} hard limit, \textit{b} Linear or \textit{c} RBF\footnote{Radial Basis Function, a non linear transfer function (normally Gaussian)} function. Additionally, non-differentiable non-linear activation functions such as the threshold function (which output is either 0 or 1) and the signum's (which output is either $-1$ or 1) are sometimes used as outputs of perceptrons and competitive networks.
+
+As can be inferred, it is plausible to specify different activation functions for different nodes within a given network in order to produce specified outputs or deal with information processing problems of different nature \cite{jiang2010medical}. Besides, the functions defined above can take a vector as input, such vector could be the multiplication of the input and weight vectors, such that if we have an input vector $x=\big[1,3,6\big]$, and a weight vector $x=\big[.5,.20,.33\big]$ with a $b=-0.5$ and the activation function is an hyperbolic tangent function the output might be computed as follows
+
+\begin{lstlisting}
+x = [1 3 5] ; w = [0.25 -0.25 0.30] ; b = -0.5;
+y = tanh(sum(x.*w)+b);
+y =
+
+    0.4621
+\end{lstlisting}
+
+Now, the nodes within a neural networks can be organized in several layers, such that the first layer or \textbf{input layer} receives a representation of the stimulus, which in turn send outputs towards the nodes of a \textbf{hidden layer} which then send stimuli towards to the nodes in the \textbf{output layer}; in the final stage, this generates a representation of the response such as the one depicted in Figure~\ref{fig:three_layers}. The \textbf{error signal} constitutes the difference between the actual and desired output response of the network given by the \textbf{teacher}\footnote{Also frequently called \textbf{target}}, information that then feeds back to the output layer and is used to modify the weights of the links between the nodes within a network. This interaction can be understood as an underlaying training based on the feedback provided by the error signal which is frequently used in \textbf{back-propagation} learning models, formally described as the addition or subtraction from the weights during the learning phase and constitutes the simplest perceptron learning rule which can be described by Equation~\ref{eq:learning rule}. The steps in the training of a three-layers network using the back-propagation learning model is shown in Figure~\ref{fig:training_steps}. The modified weights allow the network to generate a response closer to the desired one in the next trial which accuracy improves giving a certain number of repeated presentations; this kind of training is called the \textbf{generalized delta rule} or simply the \textbf{back-propagation} learning model.
+
+\begin{figure}
+  \includegraphics[width=0.5\linewidth]{fig_3_layers_network.png}
+  \centering
+  \caption{A three-layers neural network, \cite{friedenberg2011cognitive}}
+  \label{fig:three_layers}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=0.8\linewidth]{fig_training_steps.png}
+  \centering
+  \caption{Steps in the training of a three-layers network using back-propagation, \cite{friedenberg2011cognitive}}
+  \label{fig:training_steps}
+\end{figure}
+
+\begin{equation}
+w_{ji}^{\textit{new}}=w_{ji}^{\textit{old}}+C(t_j-x_j)a_i \label{eq:learning rule}
+\end{equation}
+\
+
+In Equation \ref{eq:learning rule} $C$ is a constant (usually a value $< 1$) equivalent to the learning rate; $t_j$ is the target value for the output of unit $j^{th}$ following the pattern presentation, and $x_j$ is the actual output value of unit $j^{th}$ that follows the pattern presentation; if a difference between these two values exist some error correction is likely to take place and the weight is subsequently modified. Finally, the term $a_i$ is the activation status of the input unit $i^{th}$ which is either 1 or 0 in a given moment, therefore if the value of $a_i$ equals zero (i.e. no activation of node $i^{th}$) the weight of the link undergoes no change.
+
+\section{Artificial Neural Network Typologies}
+
+The way the network  updates the values of its weights over time can be classified into three broad categories according to their \textbf{dynamics}, which could be: \textit{a. Convergent}, \textit{b. Oscillatory} or \textit{c. Chaotic}. These typologies vary in the order and pattern of their activation fluctuations which depend on the architecture of the network and on the learning rule implemented. As one example, one might consider the dynamics of a biological neural network in the brain, which is usually oscillatory and chaotic in nature, this is, fluctuates over time and does not settles; on the contrary, in a convergent network the stimulus presentation elicits the trained response in the form of an activation pattern among nodes. In oscillatory and chaotic networks such representation is subject to constant change and might correspond to more global characteristics, such as the network’s frequency and phase of activity.
+
+\begin{enumerate}
+  \item{\textit{Convergent}: At first the network undergoes a significant amount of activity which then slows down until the network settles back in a stable state. Most ANNs exhibit convergent properties.}
+  \item{\textit{Oscillatory}: The weights hold by the links in this network fluctuate periodically in a regular fashion over time.}
+  \item{\textit{Chaotic}: The network's activity pattern varies chaotically displaying both, periodic and non-periodic fluctuations.}
+\end{enumerate}
+
+On the other hand ANNs can also be classified based on their organizing schemes having into account mainly the following criteria: \textit{1. Supervision}, referring to whether the network is given the right answer (i.e. target) for each training trial or not (i.e. Supervised vs Unsupervised), \textit{2. Layers}, according to the number of layers within a network (e.g. single-layer, multi-layer, etc), and \textit{3. Information flow}, on this regard the network can be either feed-forward (i.e. signals being processed can only pass through the network in a single direction) or recurrent (i.e. both directions, forward and backward).
+
+\begin{enumerate}
+  \item{\textit{Supervision}: The two categories under this criterion are based on the way the networks learn, being either \textit{supervised} or \textit{unsupervised}; in the first case, networks are presented with target answers for each pattern they receive as input. In the second case the network determine the answer on its own lacking a given correct answer.}
+  \item{\textit{Layers}: This criterion makes reference to the number of layers contained within a network, these can either be categorized as \textit{single-layer} (i.e. one layer of nodes), or \textit{multi-layer} (i.e. two, three or more layers).}
+  \item{\textit{Information flow}: There are two categories defined by this criterion, a network is either \textit{feed-forward} or \textit{recurrent}. In the first case the activation occurs forwards only through the different layers defined in the network. Information in a recurrent network can flow in two directions, both forward and backwards, the backward flow can be, for example, from output layers to hidden or from output layers to input layers.}
+\end{enumerate}
+
+Perceptrons as described in section~\ref{sec:historic} are \textit{supervised} networks as the teacher provides the correct information that allows further adjustments of the weights during learning phase; they are \textit{multi-layer} because they contain two or more layers of nodes. Additionally under the back-propagation learning model the operations occur in a feed-forward manner. Perceptrons are typically used for task of pattern classification. \textbf{Hopfield-Tank networks} are a type of supervised, laterally connected, single layer networks (Hopfield and Tank, 1985), in which the nodes  within the one single layer are connected to every other node. These networks are good at solving optimization problems and for generating cleaner version of input patterns that contain noisy or incomplete version of previously known patterns, nonetheless they could usually end up at a local minima which represents an error state, that is when the error level drops very quickly and the network is unable to perform its task. Some ways to correct for local minima include restarting the learning process at different points and introducing noise.
+
+\textbf{Kohonen networks}\footnote{Also called \textit{feature maps}} are two-layer, unsupervised networks able to create a topological map or spatial representation of the features that receive as input (Konohen, 1990). These maps are similar to the topological maps in the brain such as in the ones within the primary visual cortex; this area represents various features of the visual input such as orientation and ocular dominance. On a different account, the \textbf{Adaptive Resonance Theory} network is an example of a multi-layer, unsupervised, recurrent network able to classify input patterns and allocate them in different categories in the absence of a previously known target information (Carpenter and Grossberg, 1988). A disadvantage of the ART network is that individual nodes represent categories so when the node undergoes damage or degradation the information about the category is lost.
+
+\section{Medical image analysis with artificial neural networks}
+
+All of the previous features that have been discussed about ANNs makes them worth using as research tools in many areas; for example, the use of ANNs have been staggering in the research community of medical imaging in the last decade, some of the common uses in this field include \textit{a)} computer-aided diagnosis, \textit{b)}  medical image segmentation and edge detection towards visual content analysis, \textit{c)} medical image registration, \textit{d)} image enhancement and noise suppression, and \textit{e)} functional connectivity simulations \cite{jiang2010medical}. Below I will describe in further details some of the characteristics of the last ANNs’ application in medical imaging processing. 
+
+\subsection{fMRI activation pattern simulation}
+
+ANNs are tools that can be used for simulating the connectivity and function of special areas in the brain; for example, semantic networks have been used to simulate the connectivity between a set of concepts and their semantic relationships resembling how semantic memory might be organized in the human brain. From this approach one might have a hierarchical architecture constituted by a \textbf{superordinate} category such as \textit{animals}, which at the next level could have exemplars or animal classes, such as \textit{birds} and \textit{cats}, which constitute  \textbf{ordinate} categories. At the bottom of this hierarchy are nodes that might correspond to other features of each animal such as \textit{can fly} or \textit{have whiskers}, corresponding to their \textbf{subordinate} categories \cite[chap. 7]{friedenberg2011cognitive}. This is only one example of how our semantic memory might be organized, nonetheless the models fail to embrace the complexity and diversity of how people from different cultural backgrounds might acquire and construct their semantic networks.
+
+Neural networks can also be used to model other cognitive functions such as speech acquisition and production, and some success in this area have been achieved by simulating a wide range of acoustic, kinematic and neuroimaging data accounting for the control movements involved in speech production. In this approach, the components of the ANN model correspond to several brain regions such as premotor, motor, auditory and somatosensory cortical areas; specific anatomical locations of the model are then estimated to simulate fMRI experiments of syllable production. Alternatively, can be used to validate the inferences about functional connectivity that is evidenced by the fMRI techniques under event-related designs and overall condition of the subject, and partially replicating some results from the psycho-physiological analysis. From this approach the underlying interregional neural interaction was simulated at two levels, the neuronal activity and multi-regional activity from fMRI data.
+Another approach based on the partial correlation matrix and structural equation modeling (EMS) was proposed to develop data-driven measures of the connection paths as established by fMRI images throughout the use of a neurobilogically realistic ANN model\cite{jiang2010medical}.
+
+
+\chapter[Web resources on Neural Networks]
+{Web resources on Neural Networks}
+
+The MathWorks offer comprehensive tutorials about this topic with videos and useful code, here are some of the links that can be interesting
+
+\begin{itemize}
+  \item https://www.mathworks.com/solutions/deep-learning/resources.html
+\end{itemize}
+
+Other websites include the following
+
+\begin{itemize}
+  \item 
+\end{itemize}
+
+\bibliographystyle{plainnat}
+\bibliography{outro}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% optional prologue or prologues
+% \chapter{Chapter Title}
+% \prologue{<text>}{<author attribution>}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Edited Book: Author and Affiliation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% After \chapter{Chapter Title}, you can
+% enter the author name and embed the affiliation with
+% \chapterauthors{(author name, or names)
+% \chapteraffil{(affiliation or affiliations)}
+% }    
+
+% For instance:
+% \chapter{Chapter Title}
+% \chapterauthors{G. Alvarez and R. K. Watts
+% \chapteraffil{Carnegie Mellon University, Pittsburgh, Pennsylvania}
+
+% For separate affiliations you can use \affilmark{(number)} after
+% the name of a particular author and before the matching affiliation:
+
+% For instance:
+% \chapter{Chapter Title}
+% \chapterauthors{George Smeal, Ph.D.\affilmark{1}, Sally Smith,
+% M.D.\affilmark{2}, and Stanley Kubrick\affilmark{1}
+% \chapteraffil{\affilmark{1}AT\&T Bell Laboratories
+% Murray Hill, New Jersey\\
+% \affilmark{2}Harvard Medical School,
+% Boston, Massachusetts}
+% }
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% short version of section head, or one without \\ supplied in sq. brackets.
+
+% \section[Introduction and fugue]{Introduction\\ and fugue}
+% \subsection[This is the subsection]{This is the\\ subsection}
+% \subsubsection{This is the subsubsection}
+% \paragraph{This is the paragraph}
+
+% \begin{chapreferences}{widest label}
+% \bibitem{<label>}Reference
+% \end{chapreferences}
+
+% optional chapter bibliography using BibTeX,
+% must also have \usepackage{chapterbib} before \begin{document}
+% Must use root file with \include{chap1}, \include{chap2} form.
+%\bibliographystyle{plain}
+%\bibliography{<your .bib file name>}
+
+% optional appendix at the end of a chapter:
+% \chapappendix{<chap appendix title>}
+% \chapappendix{} % no title
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% End Matter >>>>>>>>>>>>>>>>>>
+
+% \appendix{<optional title for appendix at end of book>}
+% \appendix{} % appendix without title
+
+% \begin{references}{<widest label>}
+% \bibitem{sampref}Here is reference.
+% \end{references}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional Problem Sets: Can use this at the end of each chapter or at end
+%% of book
+
+% \begin{problems}
+% \prob
+% text
+
+% \prob
+% text
+
+% \subprob
+% text
+
+% \subprob
+% text
+
+% \prob
+% text
+% \end{problems}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional Exercises: Can use this at the end of each chapter or at end
+%% of book
+
+% \begin{exercises}
+% \exer
+% text
+
+% \exer
+% text
+
+% \subexer
+% text
+
+% \subexer
+% text
+
+% \exer
+% text
+% \end{exercises}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INDEX: Use only one index command set:
+
+%% 1) The default LaTeX Index
+\printindex
+
+%% 2) For Topic index and Author index:
+
+% \usepackage{multind}
+% \makeindex{topic}
+% \makeindex{authors}
+% \begin{document}
+% ...
+% add index terms to your book, ie,
+% \index{topic}{A term to go to the topic index}
+% \index{authors}{Put this author in the author index}
+
+%% (these are Wiley commands)
+%\multiprintindex{topic}{Topic index}
+%\multiprintindex{authors}{Author index}
+
+\end{document}
+
+%%%%%%% Demo of section head containing sample macro:
+%% To get a macro to expand correctly in a section head, with upper and
+%% lower case math, put the definition and set the box 
+%% before \begin{document}, so that when it appears in the 
+%% table of contents it will also work:
+
+\newcommand{\VT}[1]{\ensuremath{{V_{T#1}}}}
+
+%% use a box to expand the macro before we put it into the section head:
+
+\newbox\sectsavebox
+\setbox\sectsavebox=\hbox{\boldmath\VT{xyz}}
+
+%%%%%%%%%%%%%%%%% End Demo
+
+
+Other commands, and notes on usage:
+
+-----
+Possible section head levels:
+\section{Introduction}
+\subsection{This is subsection}
+\subsubsection{This is subsection}
+\paragraph{This is the paragraph}
+
+-----
+Tables:
+ Remember to use \centering for a small table and to start the table
+ with \hline, use \hline underneath the column headers and at the end of 
+ the table, i.e.,
+
+\begin{table}[h]
+\caption{Small Table}
+\centering
+\begin{tabular}{ccc}
+\hline
+one&two&three\\
+\hline
+C&D&E\\
+\hline
+\end{tabular}
+\end{table}
+
+For a table that expands to the width of the page, write
+
+\begin{table}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcc}
+\hline
+....
+\end{tabular*}
+%% Sample table notes:
+\begin{tablenotes}
+$^a$Refs.~19 and 20.
+
+$^b\kappa, \lambda>1$.
+\end{tablenotes}
+\end{table}
+
+-----
+Algorithm.
+Maintains same fonts as text (as opposed to verbatim which uses fixed
+width fonts). Space at beginning of line will be maintained if you
+use \ at beginning of line.
+
+\begin{algorithm}
+{\bf state\_transition algorithm} $\{$
+\        for each neuron $j\in\{0,1,\ldots,M-1\}$
+\        $\{$   
+\            calculate the weighted sum $S_j$ using Eq. (6);
+\            if ($S_j>t_j$)
+\                    $\{$turn ON neuron; $Y_1=+1\}$   
+\            else if ($S_j<t_j$)
+\                    $\{$turn OFF neuron; $Y_1=-1\}$   
+\            else
+\                    $\{$no change in neuron state; $y_j$ remains %
+unchanged;$\}$ .
+\        $\}$   
+$\}$   
+\end{algorithm}
+
+-----
+Sample quote:
+\begin{quote}
+quotation...
+\end{quote}
+
+-----
+Listing samples
+
+\begin{enumerate}
+\item
+This is the first item in the numbered list.
+
+\item
+This is the second item in the numbered list.
+\end{enumerate}
+
+\begin{itemize}
+\item
+This is the first item in the itemized list.
+
+\item
+This is the first item in the itemized list.
+This is the first item in the itemized list.
+This is the first item in the itemized list.
+\end{itemize}
+
+\begin{itemize}
+\item[]
+This is the first item in the itemized list.
+
+\item[]
+This is the first item in the itemized list.
+This is the first item in the itemized list.
+This is the first item in the itemized list.
+\end{itemize}
+
+%% Index commands
+Author and Topic Indices, See docs.pdf and w-bksamp.pdf
