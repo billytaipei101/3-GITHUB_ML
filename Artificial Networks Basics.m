@@ -1,4 +1,5 @@
-%% Linear
+%% LINEAR FUNCTION
+%  This activation function's output is equal to its input
 x=[-5:0.1:5];
 y=[0:1:length(x)-1];
 plot(y,x);
