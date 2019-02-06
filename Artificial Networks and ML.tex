@@ -338,21 +338,24 @@ f(x)=x \label{eq:linear}
 \end{equation}
 
 \begin{lstlisting}
-x=[-5:0.1:5];
-y=[0:1:length(x)-1];
-plot(y,x);xlabel('x','FontSize',16) ; ylabel('Linear (x)','FontSize',16);
+x = 5;
+x = -(x):0.1:x;
+y = x;
+plot(y,x);
+title('Linear Activation Function','Fontsize',18)
+xlabel('x','FontSize',16) ; ylabel('Linear (x)','FontSize',16);
 \end{lstlisting}
 
 \begin{figure}[h!]
   \centering
-  \begin{subfigure}[b]{0.4\linewidth}
+  \begin{subfigure}[b]{0.45\linewidth}
     \includegraphics[width=\linewidth]{linear.eps}
-    \caption{Linear Function.}
+    \caption{Linear Activation Function.}
     \label{fig:linear}
   \end{subfigure}
-  \begin{subfigure}[b]{0.4\linewidth}
+  \begin{subfigure}[b]{0.45\linewidth}
     \includegraphics[width=\linewidth]{log_fun.eps}
-    \caption{Logistic Function.}
+    \caption{Logistic Activation Function.}
     \label{fig:logistic}
   \end{subfigure}
   \caption{Activation Functions.}
@@ -368,12 +371,15 @@ f(x)=\frac{1}{1+e^{-x}} \label{eq:logistic}
 Where $x$ is the input value and $e$ is the base of the natural logarithm\footnote{The number whose natural logarithm is equal to one, approximately 2.71828}. As can be seen in Figure~\ref{fig:logistic}, the output range of this function is between 0 and 1. Below is the MATLAB code used to generate the graph for the logistic function.
 
 \begin{lstlisting}
-x=[-5:0.1:5];
-y=zeros(1,length(x));
+x = 5;
+x = -(x):0.1:x;
+y = zeros(1,length(x));
 for n = 1:length(y)
     y(n)=1/(1+exp(1)^(-(x(n))));
 end
-plot(x,y);xlabel('x','FontSize',16) ; ylabel('Logistic (x)','FontSize',16);
+plot(x,y)
+title('Logistic Activation Function','Fontsize',18)
+xlabel('x','FontSize',16) ; ylabel('Logistic (x)','FontSize',16);
 \end{lstlisting}
 
 Besides the logistic function described above, the activation function can also set to be either an \textit{a} hard limit, \textit{b} Linear or \textit{c} RBF\footnote{Radial Basis Function, a non linear transfer function (normally Gaussian)} function. Additionally, non-differentiable non-linear activation functions such as the threshold function (which output is either 0 or 1) and the signum's (which output is either $-1$ or 1) are sometimes used as outputs of perceptrons and competitive networks.
